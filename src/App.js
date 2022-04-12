@@ -9,7 +9,9 @@ function capitalize(str) {
 }
 
 function App() {
-  const { isLoading, data, error } = useQuery("fetchedData", fetchAPI);
+  const { isLoading, data, error } = useQuery("fetchedData", fetchAPI, {
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -25,8 +27,14 @@ function App() {
           gender: capitalize(result.gender),
           age: result.dob.age,
           location: result.location,
+          imgUrl: result.picture.large,
+          email: result.email,
+          username: result.login.username,
+          password: result.login.password,
+          phone: result.cell,
+          registered: result.registered,
         };
-        return <User {...props} />;
+        return <User key={index} {...props} />;
       })}
     </Container>
   );
