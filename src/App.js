@@ -19,12 +19,12 @@ function App() {
         isLoading,
         data,
         error,
-        hasNextPage,
         fetchNextPage,
     } = useInfiniteQuery("fetchedData", ({pageParam = 1}) => fetchAPI(pageParam), {
         refetchOnWindowFocus: false,
         getNextPageParam: (lastPage, allPages) => {
-            return lastPage.info.page + 1
+            return lastPage.info.page + 1;
+
         },
     });
 
@@ -36,7 +36,7 @@ function App() {
 
             if (!fetching && scrollHeight - scrollTop <= clientHeight * 1.5) {
                 fetching = true;
-                if (hasNextPage) await fetchNextPage();
+                await fetchNextPage();
                 fetching = false;
             }
         };
