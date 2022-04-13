@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
@@ -20,6 +20,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import "./User.css";
 
 //todo: add paginate function in react query
+// https://react-query.tanstack.com/guides/infinite-queries
 
 function User({
   firstName,
@@ -80,7 +81,7 @@ function User({
           </DialogTitle>
           <DialogContent>
             <Box sx={{ display: "flex", padding: 2 }}>
-              <img src={imgUrl} className="img-dialog" />
+              <img src={imgUrl} className="img-dialog" alt="profile-pic" />
               <Stack spacing={2} sx={{ paddingLeft: 4 }}>
                 <TextField
                   size="small"
