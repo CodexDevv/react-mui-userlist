@@ -73,13 +73,13 @@ function User({
                     fullWidth={true}
                     maxWidth={"md"}
                 >
-                    <DialogTitle sx={{fontWeight: 600, marginLeft: 3}}>
+                    <DialogTitle sx={{fontWeight: 600, marginLeft: {xs: 0, md: 3}}}>
                         {firstName} {lastName}
                     </DialogTitle>
                     <DialogContent>
-                        <Box sx={{display: "flex", padding: 2}}>
+                        <Box sx={{display: {xs: "block", md: "flex"}, padding: {xs: 0, md: 2}}}>
                             <img src={imgUrl} className="img-dialog" alt="profile-pic"/>
-                            <Stack spacing={2} sx={{paddingLeft: 4}}>
+                            <Stack spacing={2} sx={{paddingLeft: {xs: 0, md: 4}, paddingBottom: {xs: 2, md: 0}}}>
                                 <TextField
                                     size="small"
                                     label="Gender"
@@ -118,7 +118,7 @@ function User({
                                 />
                             </Stack>
 
-                            <Stack spacing={2} sx={{paddingLeft: 4}}>
+                            <Stack spacing={2} sx={{paddingLeft: {xs: 0, md: 4}}}>
                                 <TextField
                                     size="small"
                                     label="Username"
