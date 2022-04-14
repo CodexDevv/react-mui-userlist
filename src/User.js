@@ -19,8 +19,6 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import "./User.css";
 
-//todo: add nicer main page <3
-
 function User({
                   firstName,
                   lastName,
@@ -168,7 +166,7 @@ function User({
                                 <TextField
                                     size="small"
                                     label="Registered Date"
-                                    defaultValue={registered.date}
+                                    defaultValue={registered.date.slice(0, 10)}
                                     InputProps={{
                                         readOnly: true,
                                     }}

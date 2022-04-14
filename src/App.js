@@ -3,6 +3,10 @@ import React, {useEffect} from "react";
 import {useInfiniteQuery} from "react-query";
 import User from "./User";
 import Container from "@mui/material/Container";
+import AppBar from "@mui/material/AppBar";
+import ToolBar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -34,7 +38,7 @@ function App() {
         async function onScroll(event) {
             const {scrollHeight, scrollTop, clientHeight} = event.target.scrollingElement;
 
-            if (!fetching && scrollHeight - scrollTop <= clientHeight * 1.5) {
+            if (!fetching && scrollHeight - scrollTop <= clientHeight * 5) {
                 fetching = true;
                 await fetchNextPage();
                 fetching = false;
@@ -54,27 +58,35 @@ function App() {
     console.log(data);
 
     return (
-        <Container>
-            {data.pages.map((page) =>
-                page?.results.map((_, index) => {
-                    const result = page?.results[index];
-                    const props = {
-                        firstName: result.name.first,
-                        lastName: result.name.last,
-                        gender: capitalize(result.gender),
-                        age: result.dob.age,
-                        location: result.location,
-                        imgUrl: result.picture.large,
-                        email: result.email,
-                        username: result.login.username,
-                        password: result.login.password,
-                        phone: result.cell,
-                        registered: result.registered,
-                    };
-                    return <User key={index} {...props} />;
-                })
-            )}
-        </Container>
+        <Box>
+            <AppBar position="static">
+                <ToolBar>
+                    <Typography variant={'h5'} component={"div"} sx={{flexGrow: 1, fontWeight: 500}}>User
+                        Gen</Typography>
+                </ToolBar>
+            </AppBar>
+            <Container sx={{marginTop: 5}}>
+                {data.pages.map((page) =>
+                    page?.results.map((_, index) => {
+                        const result = page?.results[index];
+                        const props = {
+                            firstName: result.name.first,
+                            lastName: result.name.last,
+                            gender: capitalize(result.gender),
+                            age: result.dob.age,
+                            location: result.location,
+                            imgUrl: result.picture.large,
+                            email: result.email,
+                            username: result.login.username,
+                            password: result.login.password,
+                            phone: result.cell,
+                            registered: result.registered,
+                        };
+                        return <User key={index} {...props} />;
+                    })
+                )}
+            </Container>
+        </Box>
     );
 }
 
