@@ -7,7 +7,16 @@ import AppBar from "@mui/material/AppBar";
 import ToolBar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import {createTheme, CssBaseline, FormControl, FormControlLabel, FormGroup, Switch, ThemeProvider} from "@mui/material";
+import {
+    createTheme,
+    CssBaseline,
+    useMediaQuery,
+    FormControl,
+    FormControlLabel,
+    FormGroup,
+    Switch,
+    ThemeProvider
+} from "@mui/material";
 
 //TODO: Get System Theme (dark mode or light mode) and set it as default.
 
@@ -35,6 +44,8 @@ function App() {
         },
     });
 
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
     const [isDark, setIsDark] = useState(false);
     const changeTheme = () => setIsDark(!isDark);
 
@@ -49,6 +60,10 @@ function App() {
             mode: "dark",
         },
     };
+
+    useEffect(() => {
+        setIsDark(prefersDarkMode);
+    }, [prefersDarkMode])
 
     useEffect(() => {
         let fetching = false;
@@ -85,7 +100,7 @@ function App() {
                             Gen</Typography>
                         <FormControl>
                             <FormGroup>
-                                <FormControlLabel control={<Switch onChange={changeTheme}/>}
+                                <FormControlLabel control={<Switch onChange={changeTheme} checked={isDark}/>}
                                                   label={isDark ? "Dark" : "Light"}/>
                             </FormGroup>
                         </FormControl>
