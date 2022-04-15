@@ -1,7 +1,5 @@
 # User Gen using MUI v5, React-Query (Infinite Query), RandomUser API
 
-----
-
 ### Screenshots:
 
 ![img.png](screenshots/img.png)
@@ -9,15 +7,11 @@
 ![img_2.png](screenshots/img_2.png)
 ![img_3.png](screenshots/img_3.png)
 
----
-
 ### Features
 
 - **Dark Mode** Functionality _(set default to system preference)_
 - **Infinite** Scroll
 - Responsive
-
----
 
 ### `yarn start`
 
