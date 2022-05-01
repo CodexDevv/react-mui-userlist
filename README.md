@@ -1,6 +1,6 @@
 # User Gen using MUI v5, React-Query (Infinite Query), RandomUser API
 
-NETLIFY LINK: https://react-mui-userlist.netlify.app/
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a5df0afe-5890-4a38-8430-6769cf50224b/deploy-status)](https://react-mui-userlist.netlify.app/)
 
 ### Screenshots:
 
