@@ -1,5 +1,7 @@
 # User Gen using MUI v5, React-Query (Infinite Query), RandomUser API
 
+NETLIFY LINK: https://react-mui-userlist.netlify.app/
+
 ### Screenshots:
 
 ![img.png](screenshots/img.png)
